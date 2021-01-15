@@ -105,7 +105,8 @@ function genpathAlt(T, β, λ, N_ϵ, y, x_init, Emax, yrange, xrange)
         stateHist[t+1] = stateHist[t]
         #println(typeof(stateHist[t]))
         #@assert typeof(stateHist[t]) == Int64
-        if CCP(stateHist[t], t, y, λ, β, T, Emax, yrange, xrange) > N_ϵ[t]
+        DEV = Emax
+        if N_ϵ[t] > arg
             stateHist[t+1] += 1
             choiceHist[t] = 1
         end
